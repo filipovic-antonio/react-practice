@@ -1,15 +1,17 @@
 import { useState } from "react";
 
-function ToggleText() {
-  const [isVisible, setIsVisible] = useState(true);
+function InputMirror() {
+  const [text, setText] = useState("");
   return (
     <div>
-      <button onClick={() => setIsVisible(!isVisible)}>
-        {isVisible ? "Hide" : "Show"} Text!
-      </button>
-      {isVisible && <p>This is a toggleable text!</p>}
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      ></input>
+      <p>{text}</p>
     </div>
   );
 }
 
-export default ToggleText;
+export default InputMirror;
